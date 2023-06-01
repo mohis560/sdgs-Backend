@@ -6,7 +6,7 @@ services:
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: root
+      MYSQL_DATABASE: synthetic_data_service
     networks:
       springboot-mysql-net:
 
