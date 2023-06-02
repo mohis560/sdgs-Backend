@@ -3,20 +3,15 @@ version: "3.3"
 services:
   mysqldb:
     container_name: mysqldb
-    image: "mysql:8.0"
-    ports:
-     - 3306:3306
+    image: mysql
     environment:
-      MYSQL_ROOT_USER: admin
-      MYSQL_PASSWORD: admin
-      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: synthetic_data_service
-    restart: unless-stopped
     networks:
       springboot-mysql-net:
 
-  synthetic-data-generator-service:
-    container_name: synthetic-data-generator-service
+  springboot-restful-webservices:
+    container_name: springboot-restful-webservices
     build:
       context: ./
       dockerfile: Dockerfile
@@ -26,7 +21,7 @@ services:
       - mysqldb
     networks:
       springboot-mysql-net:
-    restart: unless-stopped
+    restart: on-failure
 
 networks:
   springboot-mysql-net:
