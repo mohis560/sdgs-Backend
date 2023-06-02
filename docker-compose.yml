@@ -1,4 +1,4 @@
-version: "3.3"
+version: "3.8"
 
 services:
   mysqldb:
@@ -6,7 +6,7 @@ services:
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: synthetic_data_service
+      MYSQL_DATABASE: employeedb
     networks:
       springboot-mysql-net:
 
