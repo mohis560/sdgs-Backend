@@ -4,7 +4,6 @@ LABEL mentainer="ms00866501@techmahindra.com"
 
 WORKDIR /app
 
-COPY target/synthetic-data-generator-service-0.0.1-SNAPSHOT.jar /app/springboot-restful-webservices.jar
-COPY target/application.properties /app/application.properties
+COPY target/springboot-restful-webservices-0.0.1-SNAPSHOT.jar /app/springboot-restful-webservices.jar
 
-ENTRYPOINT ["java", "-jar", "-Dspring.config.location=application.properties","springboot-restful-webservices.jar"]
+ENTRYPOINT ["java", "-jar", "springboot-restful-webservices.jar"]
