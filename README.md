@@ -10,6 +10,7 @@ git pull
 
 Docker-compose.yml
 
+```
 version: "3.3"
 
 services:
@@ -41,5 +42,6 @@ services:
 
 networks:
   springboot-mysql-net:
+```
 
 Docker-compose up# synthetic-data-generator-service-Backend
