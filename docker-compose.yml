@@ -8,9 +8,9 @@ services:
      - 3306:3306
     environment:
       MYSQL_ROOT_USER: root
-      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: synthetic_data_service
-    restart: unless-stopped
+    restart: on-failure
     networks:
       springboot-mysql-net:
 
@@ -25,7 +25,7 @@ services:
       - mysqldb
     networks:
       springboot-mysql-net:
-    restart: unless-stopped
+    restart: on-failure
 
 networks:
   springboot-mysql-net:
