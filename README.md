@@ -1,3 +1,43 @@
+**DOCKER CASE1**
+
+Deploy-spring-boot-mysql-application-to-docker
+
+Reference:  https://www.javaguides.net/2022/12/deploy-spring-boot-mysql-application-to-docker.html  
+Source Code:
+```
+cd Projects/synthetic-data-generator-service-Backend/
+git pull
+```
+#Prerequistes Pull Base Image
+```
+docker pull mysql:8.0 openjdk:17-jdk-slim-buster
+```
+#CreateNetwork
+```
+docker network create springboot-mysql-net
+docker network ls
+```
+#CreateMYSQLContainer in Detached Mode
+```
+docker run --name mysqldb --network springboot-mysql-net -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=synthetic_data_service -d mysql:8.0
+```
+#LoginIntoMYSQL
+```
+docker exec -it mysqldb bash
+mysql -u root -p
+>show databases;
+```
+#CreateSpringBootImage using docker file
+```
+docker build -t synthetic-data-generator-service .
+```
+#CreateSpringBootContainer in Detached Mode
+```
+docker run --name sdgs1  --network springboot-mysql-net -p 8082:8080 synthetic-data-generator-service -d synthetic-data-generator-service
+```
+
+
+
 **DOCKER CASE2**
 
 Deploy-spring-boot-mysql-application-to-docker Compose
@@ -5,10 +45,12 @@ Deploy-spring-boot-mysql-application-to-docker Compose
 Reference:  https://www.javaguides.net/2022/12/deploy-spring-boot-mysql-application-to-docker.html  
 Source Code:
 
+```
 cd Projects/synthetic-data-generator-service-Backend/
 git pull
+```
 
-Docker-compose.yml
+Use Docker-compose.yml
 
 ```
 version: "3.3"
