@@ -86,4 +86,11 @@ networks:
   springboot-mysql-net:
 ```
 
-Docker-compose up# synthetic-data-generator-service-Backend
+#To Start container
+```
+Docker-compose up -d
+```
+#To Stop container
+```
+docker-compose down
+```
