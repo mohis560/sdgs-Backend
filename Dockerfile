@@ -8,5 +8,5 @@ WORKDIR /app
 COPY target/synthetic-data-generator-service-0.0.1-SNAPSHOT.jar ./springboot-restful-webservices.jar
 #COPY target/application.properties ./application.properties
 
-ENTRYPOINT ["java", "-jar", "-Dspring.config.location=/app/application.properties","springboot-restful-webservices.jar"]
+ENTRYPOINT ["java", "-jar", "springboot-restful-webservices.jar"]
 #ENTRYPOINT ["java", "-jar", "-Dspring.config.location=application.properties","springboot-restful-webservices.jar"]
