@@ -1,6 +1,7 @@
 FROM openjdk:17-jdk-slim-buster
 
 LABEL mentainer="ms00866501@techmahindra.com"
+USER root
 
 WORKDIR /app
 
