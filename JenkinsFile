@@ -19,6 +19,16 @@ pipeline {
         sh 'mvn clean package -DskipTests'
       }
     }
+    stage('Static Code Analysis') {
+      environment {
+        SONAR_URL = "http://3.87.252.238:9000"
+      }
+      steps {
+        withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
+          sh 'mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
+        }
+      }
+    }
     stage('Build and Push Docker Image') {
       environment {
         DOCKER_IMAGE = "mohis560/synthetic-data-generator-service-backend:${BUILD_NUMBER}"
