@@ -16,7 +16,7 @@ services:
 
   synthetic-data-generator-service:
     container_name: synthetic-data-generator-service
-    image: mohis560/synthetic-data-generator-service-backend:8
+    image: mohis560/synthetic-data-generator-service-backend:9
     ports:
       - "8081:8080"
     depends_on:
