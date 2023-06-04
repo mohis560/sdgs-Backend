@@ -16,9 +16,7 @@ services:
 
   synthetic-data-generator-service:
     container_name: synthetic-data-generator-service
-    build:
-      context: ./
-      dockerfile: Dockerfile
+    image: mohis560/synthetic-data-generator-service-backend:8
     ports:
       - "8081:8080"
     depends_on:
