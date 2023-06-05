@@ -1,23 +1,30 @@
 package com.tsi.vehicle.model;
 
-import com.tsi.vehicle.constants.ConstantsEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.Date;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
+@Where(clause="active_flag=1")
 @Table(name = "vehicle")
+
 public class Vehicle extends BaseEntity {
 
+
+    private Long id;
+
+    @Pattern(regexp = "^(?=.*[a-zA-Z])(?=.*\\d)[a-zA-Z\\d]{17}$",message = "Invalid Vin")
+    @Column(unique = true,length =17)
     private String vin;
 
     private String registrationNumber;

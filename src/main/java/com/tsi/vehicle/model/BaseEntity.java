@@ -20,11 +20,11 @@ public class BaseEntity {
     protected Long id;
 
     @CreationTimestamp
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     protected Date created;
 
     @UpdateTimestamp
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     protected Date lastUpdated;
 
     protected Boolean activeFlag = Boolean.TRUE;

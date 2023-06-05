@@ -1,5 +1,6 @@
 package com.tsi.vehicle.controller;
 
+import com.tsi.vehicle.dto.ResponseOutputDTO;
 import com.tsi.vehicle.jwt.JwtTokenProvider;
 import com.tsi.vehicle.model.AuthenticationRequest;
 import com.tsi.vehicle.model.AuthenticationResponse;
